@@ -1,0 +1,107 @@
+security {
+    replace: address-book {
+        global {
+                address DB_NET_0 172.16.1.1/32;
+                address DNS_NET_0 100.1.2.0/30;
+                address NTP_NET_0 100.1.1.0/30;
+                address WEB_NET_0 10.1.1.1/32;
+                address-set DB_NET {
+                    address DB_NET_0;
+                }
+                address-set DNS_NET {
+                    address DNS_NET_0;
+                }
+                address-set NTP_NET {
+                    address NTP_NET_0;
+                }
+                address-set WEB_NET {
+                    address WEB_NET_0;
+                }
+        }
+    }
+    /*
+    $Id:$
+    $Date:$
+    $Revision:$
+    */
+    replace: policies {
+        /*
+        */
+        from-zone outside to-zone inside-inet {
+            policy web-to-db-mysql {
+                match {
+                    source-address [ WEB_NET ];
+                    destination-address [ DB_NET ];
+                    application web-to-db-mysql-app;
+                }
+                then {
+                    permit;
+                }
+            }
+            policy deny-all {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    deny;
+                }
+            }
+        }
+        /*
+        */
+        from-zone inside to-zone outside-inet {
+            policy db-to-dns {
+                match {
+                    source-address [ DB_NET ];
+                    destination-address [ DNS_NET ];
+                    application db-to-dns-app;
+                }
+                then {
+                    permit;
+                }
+            }
+            policy db-to-ntp {
+                match {
+                    source-address [ DB_NET ];
+                    destination-address [ NTP_NET ];
+                    application db-to-ntp-app;
+                }
+                then {
+                    permit;
+                }
+            }
+            policy deny-all {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    deny;
+                }
+            }
+        }
+    }
+}
+replace: applications {
+    application db-to-dns-app1 {
+        term t1 protocol udp destination-port 53;
+    }
+    application db-to-ntp-app1 {
+        term t1 protocol udp destination-port 123;
+    }
+    application web-to-db-mysql-app1 {
+        term t1 protocol tcp destination-port 3306;
+    }
+    application-set db-to-dns-app {
+        application db-to-dns-app1;
+    }
+    application-set db-to-ntp-app {
+        application db-to-ntp-app1;
+    }
+    application-set web-to-db-mysql-app {
+        application web-to-db-mysql-app1;
+    }
+}
