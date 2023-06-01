@@ -1,3 +1,4 @@
-FROM node:18.16.0-alpine
+FROM python:3.10
 
-RUN apk add -U subversion
+# install napalm
+RUN pip install napalm

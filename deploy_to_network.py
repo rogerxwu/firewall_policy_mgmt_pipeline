@@ -9,9 +9,9 @@ import os
 def main(config_file):
     """Load a config for the device."""
 
-    if not (os.path.exists(config_file) and os.path.isfile(config_file)):
+    """ if not (os.path.exists(config_file) and os.path.isfile(config_file)):
         msg = "Missing or invalid config file {0}".format(config_file)
-        raise ValueError(msg)
+        raise ValueError(msg) """
 
     print("Loading config file {0}.".format(config_file))
 
@@ -37,7 +37,7 @@ def main(config_file):
     print(device.compare_config())
 
     # You can commit or discard the candidate changes.
-    try:
+    """ try:
         choice = input("\nWould you like to commit these changes? [yN]: ")
     except NameError:
         choice = input("\nWould you like to commit these changes? [yN]: ")
@@ -46,8 +46,10 @@ def main(config_file):
         device.commit_config()
     else:
         print("Discarding ...")
-        device.discard_config()
+        device.discard_config() """
 
+    print("Committing ...")
+    device.commit_config()
     # close the session with the device.
     device.close()
     print("Done.")
