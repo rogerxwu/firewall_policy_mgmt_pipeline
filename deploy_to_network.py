@@ -4,9 +4,16 @@
 import napalm
 import sys
 import os
+import argparse
 
 
 def main(config_file):
+    # parse
+    parser = argparse.ArgumentParser(description='Test')
+    parser.add_argument('-username')
+    parser.add_argument('-password')
+    args = parser.parse_args()
+
     """Load a config for the device."""
 
     """ if not (os.path.exists(config_file) and os.path.isfile(config_file)):
@@ -21,8 +28,8 @@ def main(config_file):
     # Connect:
     device = driver(
         hostname="192.168.223.2",
-        username="admin",
-        password="1qaz2wsx",
+        username=args.username,
+        password=args.password,
     )
 
     print("Opening ...")

@@ -18,6 +18,7 @@ Change merged to github -> Trigger Jenkins build job -> Prepare the docker conta
 Setup webhook to trigger the Jenkins build job when merge event occured
 
 ### vSRX Setup
+vSRX IP 192.168.223.2
 vSRX instance account [root/1qaz2wsx] 
 vSRX junos account [admin/123]
 1. Download vSRX image from https://webdownload.juniper.net/swdl/dl/download
@@ -35,6 +36,7 @@ vSRX junos account [admin/123]
 3. Test the connection using naplam
 
 ### Jenkins Setup
+Url: http://localhost:8080/
 Jenkins account [admin/123]
 1. Create Dockerfile to define the environment running the script
 2. Create Jenkinsfile to define the pipeline work
