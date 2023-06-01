@@ -16,11 +16,16 @@ Change merged to github -> Trigger Jenkins build job -> Render firewall policy c
 
 Manually trigger Jenkins build job
 Render firewall policy configuration on MacOS
-Pre-defined a docker image
+Pre-defined a docker image - python3.10 env
 Render firewall policy configuration from docker image
+apply the change
 
+jenkins account [admin/123]
 vSRX instance account [root/1qaz2wsx] 
 vSRX junos account [admin/123]
+
+Dockerfile: define the environment to run the script
+Jenkinsfile: define the pipeline work
 
 ## Reference
 1. Automating ACLs with Aerleon and Pandas https://vimeo.com/830550340/3c558ad696

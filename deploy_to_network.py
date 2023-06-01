@@ -16,14 +16,13 @@ def main(config_file):
     print("Loading config file {0}.".format(config_file))
 
     # Use the appropriate network driver to connect to the device:
-    driver = napalm.get_network_driver("eos")
+    driver = napalm.get_network_driver("junos")
 
     # Connect:
     device = driver(
-        hostname="127.0.0.1",
-        username="vagrant",
-        password="vagrant",
-        optional_args={"port": 12443},
+        hostname="192.168.223.2",
+        username="admin",
+        password="1qaz2wsx",
     )
 
     print("Opening ...")
@@ -55,9 +54,9 @@ def main(config_file):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print('Please supply the full path to "new_good.conf"')
-        sys.exit(1)
+    #if len(sys.argv) < 2:
+    #   print('Please supply the full path to "new_good.conf"')
+    #    sys.exit(1)
     #config_file = sys.argv[1]
-    config_file = '/srx.pol.srx'
+    config_file = './vsrx.cfg'
     main(config_file)

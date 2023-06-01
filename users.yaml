@@ -1,0 +1,8 @@
+- username: admin
+  uid: 2000
+  class: super-user
+  encrypted-password: "$6$UNeM1T2F$xa5LmrcYTWRT8Ag9DzPjPH6klW10KlvC.Bcxxwit0.dJw8R.M4nmnUvmFmLQq9ttwG/Fm1B/i.iMI4bvKVraz."
+- username: test
+  uid: 2001
+  class: super-user
+  encrypted-password: "$6$UNeM1T2F$xa5LmrcYTWRT8Ag9DzPjPH6klW10KlvC.Bcxxwit0.dJw8R.M4nmnUvmFmLQq9ttwG/Fm1B/i.iMI4bvKVraz."
