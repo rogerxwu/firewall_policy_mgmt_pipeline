@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('Parse Trigger Condition') {
             steps {
+                echo 'Parse Trigger condition'
                 /* when {
                     allOf {
                         changeset "user_mgmt_pipeline/user.yaml"
