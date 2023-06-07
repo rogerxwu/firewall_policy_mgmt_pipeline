@@ -1,5 +1,11 @@
+#! /usr/bin/groovy
+
 pipeline {
-    agent { dockerfile true }
+    agent {
+        dockerfile {
+            dir 'user_mgmt_pipeline'
+        }
+    }
     environment {
         EXAMPLE_CREDS = credentials('cred_vsrx_192_168_223_2')
     }
