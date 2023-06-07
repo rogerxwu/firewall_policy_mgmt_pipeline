@@ -71,5 +71,5 @@ if __name__ == "__main__":
     #   print('Please supply the full path to "new_good.conf"')
     #    sys.exit(1)
     #config_file = sys.argv[1]
-    config_file = './staging/user_juniper_vsrx.cfg'
+    config_file = './user_mgmt_pipeline/staging/user_juniper_vsrx.cfg'
     main(config_file)

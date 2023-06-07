@@ -23,8 +23,8 @@ def generate_config(template_path, data_path, output_path):
     print(f'Configuration generated')
 
 if __name__ == "__main__":
-    template_path = './templates/juniper/user_vsrx_template.j2'
-    data_path = './user.yaml'
-    output_path = './staging/user_juniper_vsrx.cfg'
+    template_path = './user_mgmt_pipeline/templates/juniper/user_vsrx_template.j2'
+    data_path = './user_mgmt_pipeline/user.yaml'
+    output_path = './user_mgmt_pipeline/staging/user_juniper_vsrx.cfg'
 
     generate_config(template_path=template_path, data_path=data_path, output_path=output_path)
