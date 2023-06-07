@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Configuration Deployment') {
             steps {
-                sh 'python3 user_mgmt_pipeline/cmds/deploy_to_network -username $EXAMPLE_CREDS_USR -password $EXAMPLE_CREDS_PSW'
+                sh 'python3 user_mgmt_pipeline/cmds/deploy_to_network.py -username $EXAMPLE_CREDS_USR -password $EXAMPLE_CREDS_PSW'
             }
         }
         stage('Post-check Validation') {
