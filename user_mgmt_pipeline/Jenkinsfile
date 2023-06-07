@@ -5,13 +5,12 @@ pipeline {
     }
     stages {
         stage('Test') {
-            when { changeset "user_mgmt_pipeline/*"}
             steps {
                 sh 'python3 -V'
                 //$EXAMPLE_CREDS_USR
                 //$EXAMPLE_CREDS_PSW
                 //sh 'python3 deploy_to_network.py -username'
-                sh 'python3 test_2.py -username $EXAMPLE_CREDS_USR -password $EXAMPLE_CREDS_PSW'
+                sh 'python3 test.py -username $EXAMPLE_CREDS_USR -password $EXAMPLE_CREDS_PSW'
             }
         }
     }
