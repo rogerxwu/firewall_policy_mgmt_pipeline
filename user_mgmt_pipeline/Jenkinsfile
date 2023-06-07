@@ -24,7 +24,7 @@ pipeline {
             steps {
                 // Check if user_juniper.cfg is there
                 // Check if admin is there
-                sh(echo 'Pre-check Validation pass')
+                echo 'Pre-check Validation pass'
             }
         }
         stage('Configuration Deployment') {
@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Post-check Validation') {
             steps {
-                sh(echo 'Post-check Validation pass')
+                echo 'Post-check Validation pass'
             }
         }
     }
