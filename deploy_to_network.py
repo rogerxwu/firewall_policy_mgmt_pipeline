@@ -35,8 +35,12 @@ def main(config_file):
     print("Opening ...")
     device.open()
 
-    print("Loading replacement candidate ...")
-    device.load_replace_candidate(filename=config_file)
+    # replace
+    #print("Loading replacement candidate ...")
+    #device.load_replace_candidate(filename=config_file)
+    # merge
+    print("Loading merge candidate ...")
+    device.load_merge_candidate(filename=config_file)
 
     # Note that the changes have not been applied yet. Before applying
     # the configuration you can check the changes:
@@ -44,7 +48,7 @@ def main(config_file):
     print(device.compare_config())
 
     # You can commit or discard the candidate changes.
-    """ try:
+    try:
         choice = input("\nWould you like to commit these changes? [yN]: ")
     except NameError:
         choice = input("\nWould you like to commit these changes? [yN]: ")
@@ -53,10 +57,10 @@ def main(config_file):
         device.commit_config()
     else:
         print("Discarding ...")
-        device.discard_config() """
+        device.discard_config()
 
-    print("Committing ...")
-    device.commit_config()
+    """ print("Committing ...")
+    device.commit_config() """
     # close the session with the device.
     device.close()
     print("Done.")
@@ -67,5 +71,5 @@ if __name__ == "__main__":
     #   print('Please supply the full path to "new_good.conf"')
     #    sys.exit(1)
     #config_file = sys.argv[1]
-    config_file = './vsrx.cfg'
+    config_file = './user.cfg'
     main(config_file)
