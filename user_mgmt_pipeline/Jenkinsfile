@@ -4,13 +4,37 @@ pipeline {
         EXAMPLE_CREDS = credentials('cred_vsrx_192_168_223_2')
     }
     stages {
-        stage('Test') {
+        stage('Parse Trigger Condition') {
             steps {
-                sh 'python3 -V'
-                //$EXAMPLE_CREDS_USR
-                //$EXAMPLE_CREDS_PSW
-                //sh 'python3 deploy_to_network.py -username'
-                sh 'python3 test.py -username $EXAMPLE_CREDS_USR -password $EXAMPLE_CREDS_PSW'
+                /* when {
+                    allOf {
+                        changeset "user_mgmt_pipeline/user.yaml"
+                        branch main
+                    }
+                } */
+            }
+        }
+        stage('Render to Config') {
+            steps {
+                // Generate user config
+                sh 'python3 cmds/generate_config.py'
+            }
+        }
+        stage('Pre-check Validation') {
+            steps {
+                // Check if user_juniper.cfg is there
+                // Check if admin is there
+                sh(echo 'Pre-check Validation pass')
+            }
+        }
+        stage('Configuration Deployment') {
+            steps {
+                sh 'python3 cmds/deploy_to_network -username $EXAMPLE_CREDS_USR -password $EXAMPLE_CREDS_PSW'
+            }
+        }
+        stage('Post-check Validation') {
+            steps {
+                sh(echo 'Post-check Validation pass')
             }
         }
     }

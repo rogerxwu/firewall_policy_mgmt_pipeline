@@ -1,0 +1,22 @@
+system {
+    replace: login {
+        {% for admin in admins %}
+        user {{ admin['name'] }} {
+            uid {{ admin['id'] }};
+            class super-user;
+            authentication {
+                encrypted-password {{ admin['password'] }}; ## SECRET-DATA
+            }
+        }
+        {% endfor %}
+        {% for user in users %}
+        user {{ user['name'] }} {
+            uid {{ user['id'] }};
+            class super-user;
+            authentication {
+                encrypted-password {{ user['password'] }}; ## SECRET-DATA
+            }
+        }
+        {% endfor %}
+    }
+}

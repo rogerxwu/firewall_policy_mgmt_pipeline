@@ -1,0 +1,17 @@
+admins:
+  - name: admin
+    cipher: sha512
+    id: 101
+    password: $6$UNeM1T2F$xa5LmrcYTWRT8Ag9DzPjPH6klW10KlvC.Bcxxwit0.dJw8R.M4nmnUvmFmLQq9ttwG/Fm1B/i.iMI4bvKVraz.
+users:
+  - name: rwu02
+    cipher: ssh-rsa
+    id: 2004
+    role: network-admin
+    password: $6$UNeM1T2F$xa5LmrcYTWRT8Ag9DzPjPH6klW10KlvC.Bcxxwit0.dJw8R.M4nmnUvmFmLQq9ttwG/Fm1B/i.iMI4bvKVraz.
+
+  - name: intern
+    cipher: ssh-rsa
+    id: 2004
+    role: network-operator
+    password: $6$UNeM1T2F$xa5LmrcYTWRT8Ag9DzPjPH6klW10KlvC.Bcxxwit0.dJw8R.M4nmnUvmFmLQq9ttwG/Fm1B/i.iMI4bvKVraz.
